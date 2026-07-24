@@ -679,6 +679,9 @@ blockquote.dedication {
 }
 .compare-modal-title { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.7px; color: var(--red); margin-right: auto; }
 .compare-modal-head .card-close-btn { position: static; }
+/* The compare-btn's -6px nudge is tuned for card headers; in the modal's
+   flex-centered head bar it just pushes the button above center, so drop it. */
+.compare-modal-head .compare-btn { top: 0; }
 .compare-modal-body { padding: 16px 18px; overflow: auto; }
 .compare-search {
   width: 100%; padding: 9px 12px; border: 1px solid var(--border); border-radius: var(--radius);
