@@ -673,6 +673,25 @@ blockquote.dedication {
   box-shadow: 0 8px 32px rgba(0,0,0,0.18); width: min(620px, 94%);
   max-height: 88vh; display: flex; flex-direction: column;
 }
+/* Athlete comparisons are wider to give the headshots room to breathe. The
+   headshots make this modal taller, so lift the height cap and tighten the
+   vertical rhythm a touch so the whole card fits without any scroll. */
+.compare-modal-box--athletes { width: min(760px, 94%); max-height: 92vh; }
+.compare-modal-box--athletes .compare-modal-body { padding-top: 11px; padding-bottom: 11px; }
+.compare-modal-box--athletes .compare-photo { margin-bottom: 6px; }
+.compare-modal-box--athletes .compare-table thead th { padding-bottom: 8px; }
+/* Headshot above each athlete's name in the comparison header. Mirrors the
+   detail-card .stat-photo: a silhouette background shows through when the img
+   is absent (removed via onerror) so missing photos still look intentional. */
+.compare-photo {
+  width: 116px; height: 116px; margin: 0 auto 10px; overflow: hidden;
+  border-radius: var(--radius); border: 1px solid var(--border-light);
+  background: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Ccircle%20cx='32'%20cy='23'%20r='12'%20fill='%23cbbda3'/%3E%3Cpath%20d='M13%2058c0-11%208-19%2019-19s19%208%2019%2019z'%20fill='%23cbbda3'/%3E%3C/svg%3E") center 60% / 48% no-repeat var(--bg);
+}
+[data-theme="dark"] .compare-photo {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Ccircle%20cx='32'%20cy='23'%20r='12'%20fill='%234a4335'/%3E%3Cpath%20d='M13%2058c0-11%208-19%2019-19s19%208%2019%2019z'%20fill='%234a4335'/%3E%3C/svg%3E");
+}
+.compare-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .compare-modal-head {
   display: flex; align-items: center; gap: 12px;
   padding: 14px 18px; border-bottom: 1px solid var(--border-light);
@@ -767,6 +786,7 @@ blockquote.dedication {
   .compare-metric { white-space: normal; }
   .compare-entity { font-size: 14px; }
   .compare-val { font-size: 14px; width: 34%; }
+  .compare-photo { width: 84px; height: 84px; margin-bottom: 7px; }
 
   /* Timelines are a fixed-width graphic — let them scroll instead of squashing
      the tournament pills on top of each other */

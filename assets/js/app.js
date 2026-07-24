@@ -3680,6 +3680,12 @@ function renderComparison(type, nameA, nameB) {
   const A = list.find(r => r[cfg.key] === nameA);
   const B = list.find(r => r[cfg.key] === nameB);
   if (!A || !B) return;
+  // Athletes get a wider modal with a headshot above each name; a silhouette
+  // shows through (via CSS background) when no photo file exists.
+  const withPhotos = type === "karateka";
+  const entityPhoto = withPhotos
+    ? r => `<div class="compare-photo"><img src="images/athletes/${photoSlug(r.Karateka)}.jpg" alt="${esc(r.Karateka)}" loading="lazy" onerror="this.remove()"></div>`
+    : () => "";
   const rowsHtml = cfg.metrics.map(m => {
     let va, vb, da, db;
     if (m.h2h) {
@@ -3713,7 +3719,7 @@ function renderComparison(type, nameA, nameB) {
   overlay.className = "nav-modal-overlay";
   overlay.id = "compare-modal";
   overlay.innerHTML = `
-    <div class="compare-modal-box" onclick="event.stopPropagation()">
+    <div class="compare-modal-box${withPhotos ? " compare-modal-box--athletes" : ""}" onclick="event.stopPropagation()">
       <div class="compare-modal-head">
         <span class="compare-modal-title">${t("cmp.resultTitle")}</span>
         <button class="compare-btn" id="compare-change-btn" data-cmp-type="${esc(type)}" data-cmp-name="${esc(nameA)}">${t("cmp.change")}</button>
@@ -3722,9 +3728,9 @@ function renderComparison(type, nameA, nameB) {
       <div class="compare-modal-body">
         <table class="compare-table">
           <thead><tr>
-            <th class="compare-entity"><span class="ce-inner">${cfg.head(A)}</span></th>
+            <th class="compare-entity">${entityPhoto(A)}<span class="ce-inner">${cfg.head(A)}</span></th>
             <th></th>
-            <th class="compare-entity"><span class="ce-inner">${cfg.head(B)}</span></th>
+            <th class="compare-entity">${entityPhoto(B)}<span class="ce-inner">${cfg.head(B)}</span></th>
           </tr></thead>
           <tbody>${rowsHtml}</tbody>
         </table>
