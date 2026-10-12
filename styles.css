@@ -73,7 +73,7 @@ p { margin: 0; }
 
 /* ---------- hero ---------- */
 .hero { padding-block: clamp(36px, 4vw, 44px) 24px; }
-.hero h1 { font-size: clamp(2.34rem, 7.2vw, 4.275rem); font-weight: 800; letter-spacing: -0.02em; max-width: 15ch; }
+.hero h1 { font-size: clamp(2.1rem, 6.2vw, 3.7rem); font-weight: 800; letter-spacing: -0.02em; max-width: 18ch; }
 .hero h1 em { font-style: normal; }
 .hero { position: relative; }
 .nudge {
