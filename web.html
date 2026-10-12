@@ -21,8 +21,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Figtree:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="styles.css?v=20261012d">
-<script src="site.js?v=20261012d" defer></script>
+<link rel="stylesheet" href="styles.css?v=20261012f">
+<script src="site.js?v=20261012f" defer></script>
 </head>
 <body>
 
@@ -51,8 +51,17 @@
         <p>I design, build, and look after websites for small businesses and independent people. You get a fast, mobile-friendly site, and I handle the updates.</p>
       </div>
 
-      <div class="projects">
-        <article class="project wide" id="usami-dojo">
+      <div class="folio">
+        <nav class="folio-tabs" role="tablist" aria-label="Projects">
+          <a class="folio-tab" href="#usami" id="tab-usami" role="tab" aria-controls="usami" aria-selected="true"><b>Usami Rika Dojo</b><span>Karate · Tottori, Japan</span></a>
+          <a class="folio-tab" href="#aabba" id="tab-aabba" role="tab" aria-controls="aabba"><b>AABBA Karate</b><span>Karate · San Ramon, CA</span></a>
+          <a class="folio-tab" href="#roofing" id="tab-roofing" role="tab" aria-controls="roofing"><b>Camarillo Roofing</b><span>Roofing · Fairfield, CA</span></a>
+          <a class="folio-tab" href="#chiropractic" id="tab-chiropractic" role="tab" aria-controls="chiropractic"><b>Pleasanton Upper Cervical</b><span>Chiropractic · Pleasanton, CA</span></a>
+          <a class="folio-tab" href="#onr" id="tab-onr" role="tab" aria-controls="onr"><b>ONR Construction</b><span>Construction · Ceres, CA</span></a>
+          <a class="folio-tab" href="#kata" id="tab-kata" role="tab" aria-controls="kata"><b>Kata Analysis</b><span>Side project · Data</span></a>
+        </nav>
+        <div class="folio-pages">
+        <article class="page" id="usami" role="tabpanel" aria-labelledby="tab-usami">
           <div class="browser">
             <div class="browser-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">usamirikadojo.com</span></div>
             <div class="ba">
@@ -64,17 +73,22 @@
               <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Compare the old and new Usami Rika Dojo homepage. Lower shows more of the new site, higher shows more of the old one.">
             </div>
           </div>
-          <div class="info">
-            <div class="p-meta"><h3><a href="https://usamirikadojo.com" target="_blank" rel="noopener">Usami Rika Dojo</a></h3><span class="label">Karate · Tottori, Japan</span><span class="ba-hint">Drag the slider to compare before and after</span></div>
-            <p>The dojo of 2012 Karate World Champion Rika Usami. I redesigned her old site with a completely new layout and UI, and added accurate English translations alongside the Japanese.</p>
-            <div class="tags"><span>Redesign</span><span>English / 日本語</span><span>New UI</span></div>
-            <a class="story" href="about#trip-usami">
-              <img src="images/ig/DcMgHOFyWdk.jpg" alt="" width="44" height="78">
-              <span><b>How this project started</b>I redesigned her old site on my own, then pitched it to her when I trained with her in Tottori in June 2026. <u>See the reel →</u></span>
-            </a>
+          <div class="page-info">
+          <div class="p-meta"><h3><a href="https://usamirikadojo.com" target="_blank" rel="noopener">Usami Rika Dojo</a></h3><span class="label">Karate · Tottori, Japan</span><span class="ba-hint">Drag the slider to compare before and after</span></div>
+          <p>The dojo of 2012 Karate World Champion Rika Usami. I redesigned her old site with a completely new layout and UI, and added accurate English translations alongside the Japanese.</p>
+          <div class="tags"><span>Redesign</span><span>English / 日本語</span><span>New UI</span></div>
+          <a class="story" href="about#trip-usami">
+            <img src="images/ig/DcMgHOFyWdk.jpg" alt="" width="44" height="78">
+            <span><b>How this project started</b>I redesigned her old site on my own, then pitched it to her when I trained with her in Tottori in June 2026. <u>See the reel →</u></span>
+          </a>
+          </div>
+          <div class="page-nav">
+            <span></span>
+            <span class="page-count">1 / 6</span>
+            <a class="page-btn next" href="#aabba" data-go="aabba">Next: AABBA Karate →</a>
           </div>
         </article>
-        <article class="project">
+        <article class="page" id="aabba" role="tabpanel" aria-labelledby="tab-aabba">
           <div class="browser">
             <div class="browser-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">aabbakarateacademy.com</span></div>
             <div class="ba">
@@ -86,50 +100,83 @@
               <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Compare the old and new AABBA homepage. Lower shows more of the new site, higher shows more of the old one.">
             </div>
           </div>
+          <div class="page-info">
           <div class="p-meta"><h3><a href="https://aabbakarateacademy.com" target="_blank" rel="noopener">All American Black Belt Academy</a></h3><span class="label">Karate · San Ramon, CA</span><span class="ba-hint">Drag the slider to compare before and after</span></div>
           <p>Traditional Shitō-ryū karate for kids and adults. I redesigned their old site with a cleaner UI, and added a password-protected section for the written test for each student's next belt. Students get the password from their sensei in class, which saves the dojo time.</p>
           <div class="tags"><span>Redesign</span><span>Password-protected belt tests</span><span>UI improvements</span></div>
+          </div>
+          <div class="page-nav">
+            <a class="page-btn" href="#usami" data-go="usami">← Usami Rika Dojo</a>
+            <span class="page-count">2 / 6</span>
+            <a class="page-btn next" href="#roofing" data-go="roofing">Next: Camarillo Roofing →</a>
+          </div>
         </article>
-        <article class="project">
+        <article class="page" id="roofing" role="tabpanel" aria-labelledby="tab-roofing">
           <a class="browser" href="https://camarilloroofingsolution.com" target="_blank" rel="noopener" aria-label="Visit Camarillo Roofing Solution">
             <div class="browser-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">camarilloroofingsolution.com</span></div>
             <img class="shot" src="images/camarilloroofingsolution.jpg" alt="Homepage of Camarillo Roofing Solution" loading="lazy" width="1200" height="750">
           </a>
+          <div class="page-info">
           <div class="p-meta"><h3><a href="https://camarilloroofingsolution.com" target="_blank" rel="noopener">Camarillo Roofing Solution</a></h3><span class="label">Roofing · Fairfield, CA</span></div>
           <p>A family-owned roofing crew serving the Bay Area. I built the site from scratch, with videos, photos, and descriptions that show customers the crew's expertise, plus quick ways to request a free estimate.</p>
           <div class="tags"><span>Built from scratch</span><span>Video &amp; photos</span><span>Free estimates</span></div>
+          </div>
+          <div class="page-nav">
+            <a class="page-btn" href="#aabba" data-go="aabba">← AABBA Karate</a>
+            <span class="page-count">3 / 6</span>
+            <a class="page-btn next" href="#chiropractic" data-go="chiropractic">Next: Pleasanton Upper Cervical →</a>
+          </div>
         </article>
-        <article class="project">
+        <article class="page" id="chiropractic" role="tabpanel" aria-labelledby="tab-chiropractic">
           <a class="browser" href="https://pleasantonuppercervical.com/" target="_blank" rel="noopener" aria-label="Visit Pleasanton Upper Cervical">
             <div class="browser-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">pleasantonuppercervical.com</span></div>
             <img class="shot" src="images/pleasantonuppercervical-live.jpg" alt="Homepage of Pleasanton Upper Cervical" loading="lazy" width="1200" height="750">
           </a>
+          <div class="page-info">
           <div class="p-meta"><h3><a href="https://pleasantonuppercervical.com/" target="_blank" rel="noopener">Pleasanton Upper Cervical</a></h3><span class="label">Chiropractic · Pleasanton, CA</span></div>
           <p>An upper cervical chiropractic practice in Pleasanton. I built the site from scratch, with photos, explanations of chiropractic care that any patient can understand, and a showcase of Dr. Marsh's expertise.</p>
           <div class="tags"><span>Built from scratch</span><span>Healthcare</span><span>Plain-language content</span></div>
+          </div>
+          <div class="page-nav">
+            <a class="page-btn" href="#roofing" data-go="roofing">← Camarillo Roofing</a>
+            <span class="page-count">4 / 6</span>
+            <a class="page-btn next" href="#onr" data-go="onr">Next: ONR Construction →</a>
+          </div>
         </article>
-        <article class="project">
+        <article class="page" id="onr" role="tabpanel" aria-labelledby="tab-onr">
           <a class="browser" href="https://onrconstruction.com/" target="_blank" rel="noopener" aria-label="Visit ONR Construction">
             <div class="browser-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">onrconstruction.com</span></div>
             <img class="shot" src="images/onrconstruction.jpg" alt="Homepage of ONR Construction" loading="lazy" width="1200" height="750">
           </a>
+          <div class="page-info">
           <div class="p-meta"><h3><a href="https://onrconstruction.com/" target="_blank" rel="noopener">ONR Construction</a></h3><span class="label">Construction · Ceres, CA</span></div>
           <p>A licensed concrete and general contractor serving the Central Valley and the Bay Area. Their domain only showed an "under construction" page, so I built their first real website from scratch, with their services from foundations to remodels, a project gallery, reviews, and quick ways to get a free estimate or text in a project.</p>
           <div class="tags"><span>Built from scratch</span><span>Project gallery</span><span>Free estimates</span></div>
+          </div>
+          <div class="page-nav">
+            <a class="page-btn" href="#chiropractic" data-go="chiropractic">← Pleasanton Upper Cervical</a>
+            <span class="page-count">5 / 6</span>
+            <a class="page-btn next" href="#kata" data-go="kata">Next: Kata Analysis →</a>
+          </div>
         </article>
-        <article class="project wide">
+        <article class="page" id="kata" role="tabpanel" aria-labelledby="tab-kata">
           <a class="browser" href="https://gordonjaychan.com/KataDataAnalysis/" target="_blank" rel="noopener" aria-label="Visit 2024–25 WKF Kata Analysis">
             <div class="browser-bar"><span class="dots"><i></i><i></i><i></i></span><span class="url">gordonjaychan.com/KataDataAnalysis</span></div>
             <img class="shot" src="images/katadataanalysis.jpg" alt="Homepage of 2024–25 WKF Kata Analysis" loading="lazy" width="1200" height="750">
           </a>
-          <div class="info">
-            <div class="p-meta"><h3><a href="https://gordonjaychan.com/KataDataAnalysis/" target="_blank" rel="noopener">2024–25 WKF Kata Analysis</a></h3><span class="label">Side project · Data</span></div>
-            <p>A personal project, because I love karate competition and data. I compiled men's and women's kata results from the 2024–25 WKF season and used my MIS skills to make them easy to explore for any karate fanatic like me: sortable tables, per-athlete and per-kata breakdowns, medal tallies, and charts.</p>
-            <div class="tags"><span>Data analysis</span><span>Charts</span><span>Sortable tables</span></div>
+          <div class="page-info">
+          <div class="p-meta"><h3><a href="https://gordonjaychan.com/KataDataAnalysis/" target="_blank" rel="noopener">2024–25 WKF Kata Analysis</a></h3><span class="label">Side project · Data</span></div>
+          <p>A personal project, because I love karate competition and data. I compiled men's and women's kata results from the 2024–25 WKF season and used my MIS skills to make them easy to explore for any karate fanatic like me: sortable tables, per-athlete and per-kata breakdowns, medal tallies, and charts.</p>
+          <div class="tags"><span>Data analysis</span><span>Charts</span><span>Sortable tables</span></div>
+          </div>
+          <div class="page-nav">
+            <a class="page-btn" href="#onr" data-go="onr">← ONR Construction</a>
+            <span class="page-count">6 / 6</span>
+            <a class="page-btn next" href="#usami" data-go="usami">Back to the start: Usami Rika Dojo →</a>
           </div>
         </article>
+        </div>
       </div>
-
     </div>
   </section>
 

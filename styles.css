@@ -121,9 +121,6 @@ main > section.block:first-child { border-top: 0; padding-top: clamp(24px, 3.5vw
 }
 
 /* ---------- web work ---------- */
-.projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px 56px; align-items: start; }
-@media (max-width: 760px) { .projects { grid-template-columns: 1fr; } }
-.project { display: grid; gap: 14px; }
 .browser {
   border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--surface);
   box-shadow: 0 1px 0 var(--line), 0 12px 28px -18px rgb(0 0 0 / .35);
@@ -157,6 +154,50 @@ a.browser:hover { transform: translateY(-3px); }
 .ba-range { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; -webkit-appearance: none; appearance: none; }
 .ba:focus-within .ba-handle::after { outline: 2px solid var(--gry); outline-offset: 2px; }
 .ba-hint { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); }
+[hidden] { display: none !important; }
+
+/* ---------- project "folio" (web work): tabs on the left, one page per project ---------- */
+.folio { display: grid; grid-template-columns: 15.5rem minmax(0, 1fr); gap: 40px; align-items: start; }
+.folio-tabs { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 80px); display: grid; gap: 4px; }
+.folio-tab {
+  display: grid; gap: 2px; padding: 11px 14px 11px 16px; border-radius: 10px; text-decoration: none;
+  border-left: 4px solid transparent; color: var(--muted); transition: background .15s, color .15s, border-color .15s;
+}
+.folio-tab b { font-family: var(--display); font-size: 1.0625rem; font-weight: 600; line-height: 1.25; color: inherit; }
+.folio-tab span { font-family: var(--mono); font-size: 0.6875rem; letter-spacing: .04em; text-transform: uppercase; opacity: .85; }
+.folio-tab:hover { background: var(--rind-soft); color: var(--ink); }
+.folio-tab[aria-selected="true"] { background: var(--rind-soft); color: var(--ink); border-left-color: var(--ink); }
+.folio-tab[aria-selected="true"] b { font-weight: 800; }
+.folio-pages { display: grid; gap: 64px; min-width: 0; }
+.page { display: grid; gap: 22px; min-width: 0; scroll-margin-top: 90px; }
+.page-info { display: grid; gap: 14px; max-width: 46rem; }
+.page-info p { color: var(--muted); }
+.page-info .p-meta h3 { font-size: var(--step-3); font-weight: 800; letter-spacing: -0.015em; }
+.page-nav { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-top: 18px; border-top: 1px solid var(--line); }
+.page-count { font-family: var(--mono); font-size: var(--step--1); color: var(--muted); letter-spacing: .06em; }
+.page-btn { font-weight: 600; font-size: 0.9375rem; text-decoration: none; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink); }
+.page-btn:hover { background: var(--rind-soft); border-color: var(--ink); }
+.page-btn.next { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.page-btn.next:hover { background: color-mix(in srgb, var(--ink) 82%, var(--bg)); }
+.folio.js .page.flip-next { animation: flip-next .32s ease-out; }
+.folio.js .page.flip-prev { animation: flip-prev .32s ease-out; }
+@keyframes flip-next { from { opacity: 0; transform: translateX(28px); } }
+@keyframes flip-prev { from { opacity: 0; transform: translateX(-28px); } }
+@media (prefers-reduced-motion: reduce) { .folio.js .page { animation: none !important; } }
+@media (max-width: 860px) {
+  .folio { grid-template-columns: 1fr; gap: 20px; }
+  .folio-tabs {
+    position: static; display: flex; gap: 6px; overflow-x: auto; scroll-snap-type: x proximity;
+    margin-inline: -20px; padding: 0 20px 6px; scrollbar-width: none;
+  }
+  .folio-tabs::-webkit-scrollbar { display: none; }
+  .folio-tab { flex: none; scroll-snap-align: start; border-left: 0; border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; }
+  .folio-tab span { display: none; }
+  .folio-tab[aria-selected="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .page-btn { font-size: 0.8125rem; padding: 7px 11px; }
+}
+@media (max-width: 520px) { .page-nav .page-btn:not(.next) { display: none; } .page-nav { justify-content: space-between; } }
+
 /* mini page mockups: each project gets its own client palette */
 .mock { aspect-ratio: 16 / 10; max-width: 100%; background: var(--c-bg); padding: 6% 7%; display: grid; grid-template-rows: auto 1fr; gap: 8%; }
 .mock .m-nav { display: flex; justify-content: space-between; align-items: center; }
@@ -174,9 +215,6 @@ a.browser:hover { transform: translateY(-3px); }
 .mock.v2 .m-img { display: none; }
 .mock.v2 .m-text { width: 70%; justify-items: center; }
 
-.project.wide { grid-column: 1 / -1; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 28px; align-items: center; }
-.project.wide .info { display: grid; gap: 14px; min-width: 0; }
-@media (max-width: 760px) { .project.wide { grid-template-columns: 1fr; gap: 14px; } }
 .story {
   display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 14px; align-items: center;
   padding: 12px 16px 12px 12px; border: 1.5px solid var(--lav); border-radius: var(--radius);
@@ -197,12 +235,9 @@ a.browser:hover { transform: translateY(-3px); }
 }
 .crosslink:hover { background: var(--gry); color: var(--lav); }
 @keyframes ping { from { outline: 3px solid var(--ink); outline-offset: 2px; } to { outline: 3px solid transparent; outline-offset: 16px; } }
-.project:target, .frame-wrap:target { animation: ping 1.2s ease-out 2; border-radius: var(--radius); }
-@media (prefers-reduced-motion: reduce) { .project:target, .frame-wrap:target { animation: none; outline: 3px solid var(--ink); outline-offset: 6px; } }
 .p-meta { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
 .p-meta h3 { font-size: var(--step-2); font-weight: 600; }
 .p-meta .label { white-space: nowrap; }
-.project p { color: var(--muted); max-width: 52ch; }
 .tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .tags span { font-family: var(--mono); font-size: 0.75rem; padding: 3px 9px; border-radius: 999px; background: var(--rind-soft); color: var(--rind); }
 
