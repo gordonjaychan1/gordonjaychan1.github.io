@@ -157,7 +157,7 @@ a.browser:hover { transform: translateY(-3px); }
 [hidden] { display: none !important; }
 
 /* ---------- project "folio" (web work): tabs on the left, one page per project ---------- */
-.folio { display: grid; grid-template-columns: 15.5rem minmax(0, 1fr); gap: 40px; align-items: start; }
+.folio { display: grid; grid-template-columns: 13.5rem minmax(0, 1fr); gap: 32px; align-items: start; }
 .folio-tabs { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 80px); display: grid; gap: 4px; }
 .folio-tab {
   display: grid; gap: 2px; padding: 11px 14px 11px 16px; border-radius: 10px; text-decoration: none;
@@ -169,10 +169,15 @@ a.browser:hover { transform: translateY(-3px); }
 .folio-tab[aria-selected="true"] { background: var(--rind-soft); color: var(--ink); border-left-color: var(--ink); }
 .folio-tab[aria-selected="true"] b { font-weight: 800; }
 .folio-pages { display: grid; gap: 64px; min-width: 0; }
-.page { display: grid; gap: 22px; min-width: 0; scroll-margin-top: 90px; }
-.page-info { display: grid; gap: 14px; max-width: 46rem; }
-.page-info p { color: var(--muted); }
-.page-info .p-meta h3 { font-size: var(--step-3); font-weight: 800; letter-spacing: -0.015em; }
+/* each project is an open book: screenshot on the left page, description on the right */
+.page { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 18px 28px; align-items: start; min-width: 0; scroll-margin-top: 90px; }
+.page > .browser { grid-column: 1; }
+.page-info { grid-column: 2; }
+.page-nav { grid-column: 1 / -1; }
+@media (max-width: 1000px) { .page { grid-template-columns: 1fr; } .page > .browser, .page-info { grid-column: 1; } }
+.page-info { display: grid; gap: 12px; align-content: start; max-width: 46rem; }
+.page-info p { color: var(--muted); font-size: 0.9375rem; line-height: 1.55; }
+.page-info .p-meta h3 { font-size: var(--step-2); font-weight: 800; letter-spacing: -0.01em; }
 .page-nav { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-top: 18px; border-top: 1px solid var(--line); }
 .page-count { font-family: var(--mono); font-size: var(--step--1); color: var(--muted); letter-spacing: .06em; }
 .page-btn { font-weight: 600; font-size: 0.9375rem; text-decoration: none; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink); }
