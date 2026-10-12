@@ -65,3 +65,17 @@ document.querySelectorAll(".ba").forEach((ba) => {
   range.addEventListener("input", set);
   set();
 });
+
+// Home page: "Send me a message" opens the contact form in a pop-up (falls back to the Contact page)
+const msgBtn = document.getElementById("open-msg");
+const msgDialog = document.getElementById("msg-dialog");
+if (msgBtn && msgDialog && typeof msgDialog.showModal === "function") {
+  msgBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    msgDialog.showModal();
+  });
+  msgDialog.querySelector(".msg-close").addEventListener("click", () => msgDialog.close());
+  msgDialog.addEventListener("click", (e) => {
+    if (e.target === msgDialog) msgDialog.close();  // click on the dimmed background
+  });
+}
