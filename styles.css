@@ -88,7 +88,7 @@ p { margin: 0; }
 
 .hero-ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
 .btn.big { padding: 13px 22px; font-size: 1rem; }
-.learn-wrap { position: relative; margin-top: 22px; }
+.learn-wrap { position: relative; margin-top: 40px; }
 .learn-label { display: inline-block; font-family: "Caveat", "Bradley Hand", "Comic Sans MS", cursive; font-size: 1.6rem; line-height: 1; color: var(--ink); transform: rotate(-2deg); transform-origin: left; }
 .learn-wrap .hats { margin-top: 12px; }
 .hats { margin-top: 4px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
@@ -104,7 +104,7 @@ p { margin: 0; }
   grid-row: span 2; width: 40px; height: 40px; border-radius: 8px; display: grid; place-items: center;
   background: var(--rind-soft); color: var(--rind); font-family: var(--mono); font-weight: 500; font-size: 0.875rem;
 }
-.hat .glyph-plane { font-family: system-ui, sans-serif; font-size: 1.5rem; }
+.hat .glyph-plane svg { width: 24px; height: 24px; transform: rotate(45deg); }
 .hat strong { font-family: var(--display); font-size: var(--step-1); font-weight: 600; }
 .hat span { color: var(--muted); font-size: 0.875rem; line-height: 1.4; }
 
