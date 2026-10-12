@@ -79,3 +79,37 @@ if (msgBtn && msgDialog && typeof msgDialog.showModal === "function") {
     if (e.target === msgDialog) msgDialog.close();  // click on the dimmed background
   });
 }
+
+// Home page: hand-drawn arrows from "learn more about:" to each card, recomputed on resize
+const learnWrap = document.querySelector(".learn-wrap");
+if (learnWrap) {
+  const svg = learnWrap.querySelector(".learn-arrows");
+  const label = learnWrap.querySelector(".learn-label");
+  let drawn = false;
+  const draw = () => {
+    const w = learnWrap.getBoundingClientRect();
+    const l = label.getBoundingClientRect();
+    let cards = [...learnWrap.querySelectorAll(".hat")].map((c) => c.getBoundingClientRect());
+    if (cards.length > 1 && cards[1].top > cards[0].bottom - 1) cards = cards.slice(0, 1); // stacked on phones
+    svg.setAttribute("viewBox", `0 0 ${w.width} ${w.height}`);
+    const sx = l.right - w.left + 8, sy = l.top - w.top + l.height * 0.6;
+    svg.innerHTML = cards.map((c, i) => {
+      const ex = c.left - w.left + c.width / 2 + (i - 1) * 6;
+      const ey = c.top - w.top - 7;
+      const cx = ex + (i === 0 ? -10 : 8), cy = sy + (i === 0 ? 6 : -4);   // slight wobble so it looks hand-drawn
+      return `<path d="M${sx + i * 4} ${sy + i * 2} Q${cx} ${cy} ${ex} ${ey}"/><path d="M${ex - 6} ${ey - 9} L${ex} ${ey} L${ex + 6} ${ey - 9}"/>`;
+    }).join("");
+    if (!drawn && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      svg.querySelectorAll("path").forEach((p, k) => {
+        p.style.setProperty("--len", p.getTotalLength());
+        p.style.animationDelay = `${0.3 + Math.floor(k / 2) * 0.25 + (k % 2) * 0.55}s`;
+        p.style.animationDuration = k % 2 ? "0.15s" : "0.55s";
+        p.classList.add("draw-in");
+      });
+    }
+    drawn = true;
+  };
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(draw);
+  let t;
+  addEventListener("resize", () => { clearTimeout(t); t = setTimeout(draw, 80); });
+}

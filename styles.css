@@ -72,18 +72,9 @@ p { margin: 0; }
 }
 
 /* ---------- hero ---------- */
-.hero { padding-block: clamp(40px, 5vw, 64px) 24px; }
+.hero { padding-block: clamp(32px, 4vw, 52px) 24px; }
 .hero h1 { font-size: clamp(1.85rem, 5.4vw, 3.28rem); font-weight: 800; letter-spacing: -0.02em; max-width: 18ch; }
 .hero h1 em { font-style: normal; }
-.hero { position: relative; }
-.nudge {
-  position: absolute; top: 6px; right: 172px; display: flex; align-items: flex-end; gap: 2px;
-  color: var(--ink); pointer-events: none; animation: nudge 2.4s ease-in-out infinite;
-}
-.nudge span { font-family: "Caveat", "Bradley Hand", "Comic Sans MS", cursive; font-size: 1.5rem; line-height: 1; transform: rotate(-4deg); margin-bottom: 4px; white-space: nowrap; }
-@keyframes nudge { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(3px, -4px); } }
-@media (prefers-reduced-motion: reduce) { .nudge { animation: none; } }
-@media (max-width: 760px) { .hero { padding-top: 84px; } .nudge { right: 92px; } }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 18rem); gap: 48px; align-items: center; }
 .portrait {
   width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%;
@@ -97,15 +88,14 @@ p { margin: 0; }
 
 .hero-ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
 .btn.big { padding: 13px 22px; font-size: 1rem; }
-.learn { margin-top: 26px; display: grid; gap: 2px; color: var(--ink); }
-.learn-label { font-family: "Caveat", "Bradley Hand", "Comic Sans MS", cursive; font-size: 1.6rem; line-height: 1; transform: rotate(-2deg); transform-origin: left; width: fit-content; }
-.learn-arrows { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-.learn-arrows span { display: flex; justify-content: center; animation: nudge-down 2.4s ease-in-out infinite; }
-.learn-arrows span:nth-child(2) { animation-delay: .25s; }
-.learn-arrows span:nth-child(3) { animation-delay: .5s; }
-@keyframes nudge-down { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
-@media (prefers-reduced-motion: reduce) { .learn-arrows span { animation: none; } }
-@media (max-width: 760px) { .learn-arrows { grid-template-columns: 1fr; justify-items: start; } .learn-arrows span { padding-left: 24px; } .learn-arrows span:nth-child(n+2) { display: none; } }
+.learn-wrap { position: relative; margin-top: 22px; }
+.learn-label { display: inline-block; font-family: "Caveat", "Bradley Hand", "Comic Sans MS", cursive; font-size: 1.6rem; line-height: 1; color: var(--ink); transform: rotate(-2deg); transform-origin: left; }
+.learn-arrows { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; color: var(--ink); }
+.learn-arrows path { fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.learn-wrap .hats { margin-top: 46px; }
+/* resting state is fully drawn; the animation only plays the drawing-in, so arrows show even if it never runs */
+.learn-arrows path.draw-in { stroke-dasharray: var(--len); stroke-dashoffset: 0; animation-name: draw-in; animation-timing-function: ease-out; animation-fill-mode: backwards; }
+@keyframes draw-in { from { stroke-dashoffset: var(--len); } }
 .hats { margin-top: 4px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
 @media (max-width: 760px) { .hats { grid-template-columns: 1fr; } }
 .hat {
