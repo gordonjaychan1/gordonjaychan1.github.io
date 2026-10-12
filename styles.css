@@ -450,9 +450,15 @@ a.browser:hover { transform: translateY(-3px); }
 .foot-bar { display: flex; justify-content: space-between; gap: 12px 24px; flex-wrap: wrap; padding-block: 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.875rem; }
 .foot-bar { align-items: center; }
 .site-foot.slim .foot-bar { border-top: 0; padding-block: 8px; }
-.foot-right { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
-.ig { display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; color: var(--ink); transition: background .15s; }
-.ig:hover { background: color-mix(in srgb, var(--ink) 12%, transparent); }
-.ig svg { width: 22px; height: 22px; }
+.foot-who { display: inline-flex; align-items: center; gap: 8px; }
+.foot-who img { width: 18px; height: 20px; }
+.foot-links { display: flex; flex-wrap: wrap; gap: 8px; }
+.foot-bar .pill {
+  display: inline-flex; align-items: center; gap: 8px; padding: 6px 13px;
+  border: 1px solid var(--line); border-radius: 999px; color: var(--ink); text-decoration: none; font-weight: 500;
+  transition: background .15s, border-color .15s;
+}
+.foot-bar .pill:hover { background: var(--rind-soft); border-color: var(--ink); text-decoration: none; }
+.foot-bar .pill svg { width: 18px; height: 18px; }
 .foot-bar a { text-decoration: none; }
 .foot-bar a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
