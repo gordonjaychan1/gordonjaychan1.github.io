@@ -25,7 +25,7 @@
   --step-3: clamp(2rem, 5vw, 2.75rem);
   --step-4: clamp(2.6rem, 8vw, 4.75rem);
 
-  --wrap: 68rem;
+  --wrap: 76rem;
   --radius: 10px;
 }
 
@@ -157,8 +157,10 @@ a.browser:hover { transform: translateY(-3px); }
 [hidden] { display: none !important; }
 
 /* ---------- project "folio" (web work): tabs on the left, one page per project ---------- */
-.folio { display: grid; grid-template-columns: 13.5rem minmax(0, 1fr); gap: 32px; align-items: start; }
-.folio-tabs { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 80px); display: grid; gap: 4px; }
+.folio { display: grid; grid-template-columns: 12rem minmax(0, 1fr); gap: 28px; align-items: start; }
+.folio-tabs { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 80px); }
+.folio-tablist { display: grid; gap: 4px; }
+.folio-label { font-family: var(--mono); font-size: var(--step--1); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding: 0 0 8px 20px; }
 .folio-tab {
   display: grid; gap: 2px; padding: 11px 14px 11px 16px; border-radius: 10px; text-decoration: none;
   border-left: 4px solid transparent; color: var(--muted); transition: background .15s, color .15s, border-color .15s;
@@ -170,11 +172,11 @@ a.browser:hover { transform: translateY(-3px); }
 .folio-tab[aria-selected="true"] b { font-weight: 800; }
 .folio-pages { display: grid; gap: 64px; min-width: 0; }
 /* each project is an open book: screenshot on the left page, description on the right */
-.page { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 18px 28px; align-items: start; min-width: 0; scroll-margin-top: 90px; }
+.page { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 18px 28px; align-items: start; min-width: 0; scroll-margin-top: 90px; }
 .page > .browser { grid-column: 1; }
 .page-info { grid-column: 2; }
 .page-nav { grid-column: 1 / -1; }
-@media (max-width: 1000px) { .page { grid-template-columns: 1fr; } .page > .browser, .page-info { grid-column: 1; } }
+@media (max-width: 1060px) { .page { grid-template-columns: 1fr; } .page > .browser, .page-info { grid-column: 1; } }
 .page-info { display: grid; gap: 12px; align-content: start; max-width: 46rem; }
 .page-info p { color: var(--muted); font-size: 0.9375rem; line-height: 1.55; }
 .page-info .p-meta h3 { font-size: var(--step-2); font-weight: 800; letter-spacing: -0.01em; }
@@ -191,13 +193,15 @@ a.browser:hover { transform: translateY(-3px); }
 @media (prefers-reduced-motion: reduce) { .folio.js .page { animation: none !important; } }
 @media (max-width: 860px) {
   .folio { grid-template-columns: 1fr; gap: 20px; }
-  .folio-tabs {
-    position: static; display: flex; gap: 6px; overflow-x: auto; scroll-snap-type: x proximity;
+  .folio-tabs { position: static; }
+  .folio-tablist {
+    display: flex; gap: 6px; overflow-x: auto; scroll-snap-type: x proximity;
     margin-inline: -20px; padding: 0 20px 6px; scrollbar-width: none;
   }
-  .folio-tabs::-webkit-scrollbar { display: none; }
+  .folio-tablist::-webkit-scrollbar { display: none; }
   .folio-tab { flex: none; scroll-snap-align: start; border-left: 0; border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; }
   .folio-tab span { display: none; }
+  .folio-label { display: none; }
   .folio-tab[aria-selected="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
   .page-btn { font-size: 0.8125rem; padding: 7px 11px; }
 }
