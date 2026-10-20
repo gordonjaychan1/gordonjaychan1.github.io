@@ -159,16 +159,19 @@ a.browser:hover { transform: translateY(-3px); }
 [hidden] { display: none !important; }
 
 /* ---------- project "folio" (web work): tabs on the left, one page per project ---------- */
-.folio { display: grid; grid-template-columns: 12rem minmax(0, 1fr); gap: 28px; align-items: start; }
+.folio { display: grid; grid-template-columns: 14rem minmax(0, 1fr); gap: 28px; align-items: start; }
 .folio-tabs { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 80px); }
 .folio-tablist { display: grid; gap: 4px; }
 .folio-label { font-family: var(--mono); font-size: var(--step--1); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding: 0 0 8px 20px; }
 .folio-tab {
-  display: grid; gap: 2px; padding: 11px 14px 11px 16px; border-radius: 10px; text-decoration: none;
+  display: grid; grid-template-columns: 34px minmax(0, 1fr); align-items: center; gap: 12px; padding: 10px 12px 10px 12px; border-radius: 10px; text-decoration: none;
   border-left: 4px solid transparent; color: var(--muted); transition: background .15s, color .15s, border-color .15s;
 }
-.folio-tab b { font-family: var(--display); font-size: 1.0625rem; font-weight: 600; line-height: 1.25; color: inherit; }
-.folio-tab span { font-family: var(--mono); font-size: 0.6875rem; letter-spacing: .04em; text-transform: uppercase; opacity: .85; }
+.folio-logo { width: 34px; height: 34px; border-radius: 8px; object-fit: contain; display: block; }
+.folio-logo.light { background: var(--lav); padding: 3px; }
+.folio-tab-text { display: grid; gap: 1px; min-width: 0; }
+.folio-tab b { font-family: var(--display); font-size: 1rem; font-weight: 600; line-height: 1.25; color: inherit; }
+.folio-tab-text span { font-family: var(--mono); font-size: 0.6875rem; letter-spacing: .04em; text-transform: uppercase; opacity: .85; }
 .folio-tab:hover { background: var(--rind-soft); color: var(--ink); }
 .folio-tab[aria-selected="true"] { background: var(--rind-soft); color: var(--ink); border-left-color: var(--ink); }
 .folio-tab[aria-selected="true"] b { font-weight: 800; }
@@ -201,8 +204,9 @@ a.browser:hover { transform: translateY(-3px); }
     margin-inline: -20px; padding: 0 20px 6px; scrollbar-width: none;
   }
   .folio-tablist::-webkit-scrollbar { display: none; }
-  .folio-tab { flex: none; scroll-snap-align: start; border-left: 0; border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; }
-  .folio-tab span { display: none; }
+  .folio-tab { flex: none; scroll-snap-align: start; border-left: 0; border: 1px solid var(--line); border-radius: 999px; padding: 5px 14px 5px 5px; grid-template-columns: 26px auto; gap: 8px; }
+  .folio-logo { width: 26px; height: 26px; border-radius: 50%; }
+  .folio-tab-text span { display: none; }
   .folio-label { display: none; }
   .folio-tab[aria-selected="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
   .page-btn { font-size: 0.8125rem; padding: 7px 11px; }
