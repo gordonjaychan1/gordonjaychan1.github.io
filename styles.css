@@ -209,6 +209,9 @@ a.browser:hover { transform: translateY(-3px); }
 }
 @media (max-width: 520px) { .page-nav .page-btn:not(.next) { display: none; } .page-nav { justify-content: space-between; } }
 
+.folio-cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 18px; margin-top: 48px; padding: 22px; border: 1.5px dashed var(--line); border-radius: var(--radius); }
+.folio-cta p { font-family: var(--display); font-size: var(--step-1); font-weight: 600; }
+
 /* mini page mockups: each project gets its own client palette */
 .mock { aspect-ratio: 16 / 10; max-width: 100%; background: var(--c-bg); padding: 6% 7%; display: grid; grid-template-rows: auto 1fr; gap: 8%; }
 .mock .m-nav { display: flex; justify-content: space-between; align-items: center; }
@@ -280,6 +283,7 @@ a.browser:hover { transform: translateY(-3px); }
   background: var(--bg); color: var(--ink); border-top: 0;
 }
 .band + section.block { border-top: 0; }
+.band[hidden] + section.block { border-top: 1px solid var(--line); }
 .kind-words, .faq { display: grid; gap: 24px; }
 .kind-words-head { display: flex; align-items: end; justify-content: space-between; gap: 12px 20px; flex-wrap: wrap; }
 .kind-words-head > div { display: grid; gap: 10px; }
