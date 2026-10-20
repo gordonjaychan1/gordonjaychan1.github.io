@@ -511,7 +511,9 @@ a.browser:hover { transform: translateY(-3px); }
 .foot-bar { display: flex; justify-content: space-between; gap: 12px 24px; flex-wrap: wrap; padding-block: 14px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.875rem; }
 .foot-bar { align-items: center; }
 .site-foot.slim .foot-bar { border-top: 0; padding-block: 8px; }
-.foot-who { display: inline-flex; align-items: center; gap: 8px; }
+.foot-who { display: grid; gap: 2px; }
+.foot-contact { color: var(--ink); font-weight: 500; }
+.foot-contact span { user-select: all; }
 .foot-links { display: flex; flex-wrap: wrap; gap: 8px; }
 .foot-bar .pill {
   display: inline-flex; align-items: center; gap: 8px; padding: 6px 13px;
