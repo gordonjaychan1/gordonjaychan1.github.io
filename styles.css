@@ -297,6 +297,14 @@ a.browser:hover { transform: translateY(-3px); }
 .quote figcaption { display: grid; gap: 2px; }
 .quote figcaption b { font-weight: 600; }
 .quote figcaption span { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); letter-spacing: .03em; }
+/* a single real quote gets the full width and reads like a letter */
+.quote.single { grid-column: 1 / -1; padding: 32px; max-width: 56rem; }
+.quote.single blockquote { font-size: clamp(1.15rem, 2vw, 1.45rem); font-weight: 500; line-height: 1.5; text-wrap: pretty; }
+.quote.single figcaption { display: flex; align-items: center; gap: 14px; }
+.quote.single figcaption img { width: 44px; height: 44px; border-radius: 10px; object-fit: contain; flex: none; }
+.quote.single figcaption span { display: grid; gap: 2px; font-family: var(--body); font-size: 0.9375rem; letter-spacing: 0; color: var(--muted); }
+.quote.single figcaption b { color: var(--ink); font-size: 1.0625rem; }
+.quote.single figcaption a { color: inherit; text-underline-offset: 3px; }
 
 /* ---------- faq ---------- */
 .faq-list { border-top: 1px solid var(--line); }
