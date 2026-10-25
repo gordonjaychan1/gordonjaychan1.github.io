@@ -270,6 +270,7 @@ a.browser:hover { transform: translateY(-3px); }
 @media (max-width: 480px) { .price ul { grid-template-columns: 1fr; } }
 .price li::before { content: "✓"; margin-right: 8px; font-weight: 600; }
 .price .note { color: var(--muted); font-size: 0.9375rem; grid-column: 1 / -1; }
+.price .price-sub { margin-top: 10px; max-width: 24ch; color: var(--muted); font-size: 0.875rem; line-height: 1.45; }
 
 /* ---------- testimonials ---------- */
 /* testimonials sit in a lavender band so the switch from my words to theirs is obvious */
