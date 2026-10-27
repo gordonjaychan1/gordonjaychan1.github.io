@@ -294,12 +294,15 @@ a.browser:hover { transform: translateY(-3px); }
 .quote { margin: 0; padding: 24px; border: 1px solid var(--line); border-radius: var(--radius); display: flex; flex-direction: column; gap: 18px; }
 .quote.sample { border-style: dashed; }
 .quote blockquote { margin: 0; font-family: var(--display); font-size: var(--step-1); font-weight: 600; line-height: 1.35; }
-.quote blockquote::before { content: "\201C"; display: block; font-size: 3rem; line-height: .7; margin-bottom: 4px; color: var(--muted); }
+.quote blockquote::before { content: none; }
 .quote figcaption { display: grid; gap: 2px; }
 .quote figcaption b { font-weight: 600; }
 .quote figcaption span { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); letter-spacing: .03em; }
 /* real quotes read like short letters; two sit side by side, one alone gets the full width */
 .quote.letter { padding: 28px; }
+.stars { color: var(--ink); letter-spacing: .12em; font-size: 1.15rem; line-height: 1; }
+.quote.letter .stars { margin-bottom: -6px; }
+.rating-note { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; color: var(--ink); }
 .quote.letter:only-child { grid-column: 1 / -1; max-width: 56rem; }
 /* three quotes: the first (longest) runs tall on the left, the other two stack on the right */
 .quote.letter:first-child:nth-last-child(3) { grid-row: span 2; }
