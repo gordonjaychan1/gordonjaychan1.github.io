@@ -301,9 +301,13 @@ a.browser:hover { transform: translateY(-3px); }
 /* real quotes read like short letters; two sit side by side, one alone gets the full width */
 .quote.letter { padding: 28px; }
 .quote.letter:only-child { grid-column: 1 / -1; max-width: 56rem; }
+/* three quotes: the first (longest) runs tall on the left, the other two stack on the right */
+.quote.letter:first-child:nth-last-child(3) { grid-row: span 2; }
+@media (max-width: 760px) { .quote.letter:first-child:nth-last-child(3) { grid-row: auto; } }
 .quote.letter blockquote { font-size: clamp(1.1rem, 1.7vw, 1.3rem); font-weight: 500; line-height: 1.5; text-wrap: pretty; }
 .quote.letter figcaption { display: flex; align-items: center; gap: 14px; margin-top: auto; }
 .quote.letter figcaption img { width: 44px; height: 44px; border-radius: 10px; object-fit: contain; flex: none; }
+.quote.letter figcaption img.on-white { background: #FFFFFF; padding: 4px; }
 .quote.letter figcaption span { display: grid; gap: 2px; font-family: var(--body); font-size: 0.9375rem; letter-spacing: 0; color: var(--muted); }
 .quote.letter figcaption b { color: var(--ink); font-size: 1.0625rem; }
 .quote.letter figcaption a { color: inherit; text-underline-offset: 3px; }
