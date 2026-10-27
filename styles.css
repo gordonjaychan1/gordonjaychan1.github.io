@@ -302,7 +302,9 @@ a.browser:hover { transform: translateY(-3px); }
 .quote.letter { padding: 28px; }
 .stars { color: var(--ink); letter-spacing: .12em; font-size: 1.15rem; line-height: 1; }
 .quote.letter .stars { margin-bottom: -6px; }
-.rating-note { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; color: var(--ink); }
+.rating-note { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; transition: background .15s, border-color .15s; }
+.rating-note b { font-weight: 700; }
+.rating-note:hover { background: var(--rind-soft); border-color: var(--ink); }
 .quote.letter:only-child { grid-column: 1 / -1; max-width: 56rem; }
 /* three quotes: the first (longest) runs tall on the left, the other two stack on the right */
 .quote.letter:first-child:nth-last-child(3) { grid-row: span 2; }
