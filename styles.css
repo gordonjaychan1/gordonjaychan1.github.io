@@ -3,6 +3,7 @@
 :root {
   --lav: #E7DDFF;
   --gry: #5E5A6E;    /* soft purple-gray */
+  --shu: #D9472B;    /* vermilion, same red accent as /dojo/ */
   --bg: var(--gry);    /* one look for everyone: gray page, lavender text */
   --ink: var(--lav);
   color-scheme: dark;
@@ -300,7 +301,7 @@ a.browser:hover { transform: translateY(-3px); }
 .quote figcaption span { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); letter-spacing: .03em; }
 /* real quotes read like short letters; two sit side by side, one alone gets the full width */
 .quote.letter { padding: 28px; }
-.stars { color: var(--ink); letter-spacing: .12em; font-size: 1.15rem; line-height: 1; }
+.stars { color: var(--shu); letter-spacing: .12em; font-size: 1.15rem; line-height: 1; }
 .quote.letter .stars { margin-bottom: -6px; }
 .rating-note { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; transition: background .15s, border-color .15s; }
 .rating-note b { font-weight: 700; }
