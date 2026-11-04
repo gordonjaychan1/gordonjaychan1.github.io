@@ -303,13 +303,16 @@ a.browser:hover { transform: translateY(-3px); }
 .quote.letter { padding: 28px; }
 .stars { color: var(--shu); letter-spacing: .12em; font-size: 1.15rem; line-height: 1; }
 .quote.letter .stars { margin-bottom: -6px; }
+.quote-note { font-family: var(--mono); font-size: 0.75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); line-height: 1.15rem; margin-bottom: -6px; }
+.quote-original summary { cursor: pointer; font-size: 0.9375rem; font-weight: 600; color: var(--muted); text-underline-offset: 3px; }
+.quote-original summary:hover { color: var(--ink); text-decoration: underline; }
+.quote-original div { margin-top: 10px; padding-left: 14px; border-left: 3px solid var(--line); color: var(--muted); font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", var(--body); font-size: 0.9375rem; line-height: 1.8; }
+.quote-original p { margin: 0 0 6px; }
 .rating-note { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; transition: background .15s, border-color .15s; }
 .rating-note b { font-weight: 700; }
 .rating-note:hover { background: var(--rind-soft); border-color: var(--ink); }
 .quote.letter:only-child { grid-column: 1 / -1; max-width: 56rem; }
 /* three quotes: the first (longest) runs tall on the left, the other two stack on the right */
-.quote.letter:first-child:nth-last-child(3) { grid-row: span 2; }
-@media (max-width: 760px) { .quote.letter:first-child:nth-last-child(3) { grid-row: auto; } }
 .quote.letter blockquote { font-size: clamp(1.1rem, 1.7vw, 1.3rem); font-weight: 500; line-height: 1.5; text-wrap: pretty; }
 .quote.letter figcaption { display: flex; align-items: center; gap: 14px; margin-top: auto; }
 .quote.letter figcaption img { width: 44px; height: 44px; border-radius: 10px; object-fit: contain; flex: none; }
