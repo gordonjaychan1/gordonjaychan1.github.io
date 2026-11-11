@@ -454,6 +454,7 @@ a.browser:hover { transform: translateY(-3px); }
   color: var(--lav); text-decoration: none;
 }
 .frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; transition: transform .3s; }
+.frame img.crop-high { object-position: 50% 20%; }   /* keeps text printed low in a cover clear of the tile label */
 .frame:hover img { transform: scale(1.04); }
 .frame::after { content: ""; position: absolute; inset: 0; z-index: 0; background: linear-gradient(to top, rgb(20 18 28 / .75), transparent 50%); }
 .frame:hover { outline: 2px solid var(--ink); outline-offset: 3px; }
