@@ -446,8 +446,19 @@ a.browser:hover { transform: translateY(-3px); }
 .btn.primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 .btn.primary:hover { background: color-mix(in srgb, var(--ink) 82%, var(--bg)); border-color: transparent; }
 
-.sheet { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-@media (max-width: 860px) { .sheet { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* covers come from Instagram at 360px wide, so tiles stay small enough that they look sharp */
+.travel-layout { display: grid; grid-template-columns: minmax(0, 1fr) 39rem; gap: 32px 56px; align-items: start; }
+.travel-layout .travel-head { flex-direction: column; align-items: flex-start; margin-bottom: 0; }
+@media (max-width: 1000px) { .travel-layout { grid-template-columns: minmax(0, 1fr); } }
+.sheet { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; max-width: 39rem; }
+@media (max-width: 560px) { .sheet { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.sheet .frame { padding: 10px; }
+.sheet .frame strong { font-size: 1rem; }
+.sheet .frame small { font-size: 0.625rem; }
+.sheet .frame .fmt, .sheet .crosslink { top: 8px; font-size: 0.625rem; }
+.sheet .frame .fmt { left: 8px; padding: 1px 6px; }
+.sheet .crosslink { right: 8px; padding: 3px 8px; }
+.sheet .frame-wrap .fmt { display: none; }   /* the crosslink badge takes its spot */
 .frame {
   position: relative; aspect-ratio: 4 / 5; max-width: 100%; border-radius: 8px; overflow: hidden;
   background: var(--ink); display: flex; flex-direction: column; justify-content: flex-end; padding: 12px;
