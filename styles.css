@@ -290,7 +290,8 @@ a.browser:hover { transform: translateY(-3px); }
 .kind-words-head > div { display: grid; gap: 10px; }
 .kind-words-head h2 { font-size: var(--step-3); font-weight: 800; letter-spacing: -0.015em; }
 .chip { font-family: var(--mono); font-size: 0.75rem; padding: 3px 9px; border-radius: 999px; border: 1px dashed var(--ink); color: var(--ink); }
-.quotes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
+.quotes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
+@media (max-width: 1000px) { .quotes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 760px) { .quotes { grid-template-columns: 1fr; } }
 .quote { margin: 0; padding: 24px; border: 1px solid var(--line); border-radius: var(--radius); display: flex; flex-direction: column; gap: 18px; }
 .quote.sample { border-style: dashed; }
@@ -299,7 +300,7 @@ a.browser:hover { transform: translateY(-3px); }
 .quote figcaption { display: grid; gap: 2px; }
 .quote figcaption b { font-weight: 600; }
 .quote figcaption span { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); letter-spacing: .03em; }
-/* real quotes read like short letters; two sit side by side, one alone gets the full width */
+/* real quotes read like short letters; long ones start collapsed (site.js adds .clamped and a "Read more" button) */
 .quote.letter { padding: 28px; }
 .stars { color: var(--shu); letter-spacing: .12em; font-size: 1.15rem; line-height: 1; }
 .quote.letter .stars { margin-bottom: -6px; }
@@ -312,11 +313,10 @@ a.browser:hover { transform: translateY(-3px); }
 .rating-note b { font-weight: 700; }
 .rating-note:hover { background: var(--rind-soft); border-color: var(--ink); }
 .quote.letter:only-child { grid-column: 1 / -1; max-width: 56rem; }
-/* odd number of cards: the first one runs down two rows so the grid has no empty slot */
-.quote.letter:first-child:nth-last-child(odd):not(:only-child) { grid-row: span 2; }
-@media (max-width: 760px) { .quote.letter:first-child:nth-last-child(odd) { grid-row: auto; } }
-/* three quotes: the first (longest) runs tall on the left, the other two stack on the right */
 .quote.letter blockquote { font-size: clamp(1.1rem, 1.7vw, 1.3rem); font-weight: 500; line-height: 1.5; text-wrap: pretty; }
+.quote.letter blockquote.clamped { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 5; line-clamp: 5; overflow: hidden; }
+.more-btn { align-self: flex-start; margin-top: -8px; padding: 0; border: 0; background: none; cursor: pointer; font: 600 0.9375rem var(--body); color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.more-btn:hover { text-decoration-thickness: 2px; }
 .quote.letter figcaption { display: flex; align-items: center; gap: 14px; margin-top: auto; }
 .quote.letter figcaption img { width: 44px; height: 44px; border-radius: 10px; object-fit: contain; flex: none; }
 .quote.letter figcaption img.on-white { background: #FFFFFF; padding: 4px; }

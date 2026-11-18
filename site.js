@@ -54,6 +54,25 @@ document.querySelectorAll("form.js-formspree").forEach((form) => {
   });
 });
 
+// Long testimonials show their first few lines with a "Read more" toggle
+(document.fonts ? document.fonts.ready : Promise.resolve()).then(() => {
+  document.querySelectorAll(".quote.letter blockquote").forEach((q) => {
+    q.classList.add("clamped");
+    if (q.scrollHeight - q.clientHeight < 4) { q.classList.remove("clamped"); return; }
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "more-btn";
+    btn.textContent = "Read more";
+    btn.setAttribute("aria-expanded", "false");
+    btn.addEventListener("click", () => {
+      const open = !q.classList.toggle("clamped");
+      btn.textContent = open ? "Show less" : "Read more";
+      btn.setAttribute("aria-expanded", String(open));
+    });
+    q.after(btn);
+  });
+});
+
 // "Website inquiry" buttons open the contact form with the topic already picked
 const topicSelect = document.getElementById("ct-topic");
 const topic = new URLSearchParams(location.search).get("topic");
