@@ -312,6 +312,9 @@ a.browser:hover { transform: translateY(-3px); }
 .rating-note b { font-weight: 700; }
 .rating-note:hover { background: var(--rind-soft); border-color: var(--ink); }
 .quote.letter:only-child { grid-column: 1 / -1; max-width: 56rem; }
+/* odd number of cards: the first one runs down two rows so the grid has no empty slot */
+.quote.letter:first-child:nth-last-child(odd):not(:only-child) { grid-row: span 2; }
+@media (max-width: 760px) { .quote.letter:first-child:nth-last-child(odd) { grid-row: auto; } }
 /* three quotes: the first (longest) runs tall on the left, the other two stack on the right */
 .quote.letter blockquote { font-size: clamp(1.1rem, 1.7vw, 1.3rem); font-weight: 500; line-height: 1.5; text-wrap: pretty; }
 .quote.letter figcaption { display: flex; align-items: center; gap: 14px; margin-top: auto; }
